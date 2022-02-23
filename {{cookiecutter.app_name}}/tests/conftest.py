@@ -62,7 +62,7 @@ class FixturesSettingsTestMixin(object):
             APPLICATION=self.application_path,
             TESTS=self.tests_path,
             FIXTURES=self.fixtures_path,
-            VERSION={{ cookiecutter.app_name }}.__version__,
+            #VERSION={{ cookiecutter.app_name }}.__version__,
             USER_AGENT={{ cookiecutter.app_name }}.USER_AGENT,
         )
 

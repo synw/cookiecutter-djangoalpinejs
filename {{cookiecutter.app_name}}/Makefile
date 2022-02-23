@@ -11,9 +11,8 @@ PYRIGTH=$(VENV_PATH)/bin/pyright
 SPHINX_RELOAD=$(VENV_PATH)/bin/python sphinx_reload.py
 
 DEMO_DJANGO_SECRET_KEY=samplesecretfordev
-PACKAGE_NAME={{ cookiecutter.package_name }}
-PACKAGE_SLUG=`echo $(PACKAGE_NAME) | tr '-' '_'`
 APPLICATION_NAME={{ cookiecutter.app_name }}
+PACKAGE_SLUG=`echo $(APPLICATION_NAME) | tr '-' '_'`
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
