@@ -129,7 +129,7 @@ ts:
 	@echo ""
 	@echo "==== Running typescript watch autocompile ===="
 	@echo ""
-	cd alpine && yarn watch
+	cd $(PACKAGE_SLUG)/alpine && yarn watch
 .PHONY: ts
 
 tw:
