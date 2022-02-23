@@ -56,7 +56,7 @@ LANGUAGE_CODE = "en"
 
 LANGUAGES = (
     ("en", "English"),
-    ('fr', "Français"),
+    ("fr", "Français"),
 )
 
 # A tuple of directories where Django looks for translation files
@@ -167,8 +167,3 @@ LOGOUT_REDIRECT_URL = "/"
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 TAILWIND_APP_NAME = "theme"
-
-"""
-SPECIFIC BASE APPLICATIONS SETTINGS BELOW
-"""
-from {{ cookiecutter.project_name }}.settings import *
