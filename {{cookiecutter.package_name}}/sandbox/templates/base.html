@@ -1,0 +1,47 @@
+{% load static tailwind_tags %}
+{% raw %}
+<!DOCTYPE html>
+
+<head>{% spaceless %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block head_title %}Django Alpinejs{% endblock head_title %}</title>
+    <script type="text/javascript" src="https://unpkg.com/alpinejs@3.2.1/dist/cdn.min.js" defer></script>
+    <script type="text/javascript" src="https://unpkg.com/htmx.org@1.7.0"
+        integrity="sha384-1P2DfVFAJH2XsYTakfc6eNhTVtyio74YNA1tc6waJ0bO+IfaexSWXc2x62TgBcXe"
+        crossorigin="anonymous"></script>
+    {% block head_extra %}{% endblock head_extra %}
+    {% tailwind_css %}
+    <script src="{% static 'alpine/store.js' %}"></script>
+    <script>
+        // init the store
+        document.addEventListener('alpine:init', () => {
+            initRechatStore("{{ request.user.get_username }}");
+        });
+        //htmx.logAll();
+        // add CSRFToken to HTMX headers
+        document.body.addEventListener('htmx:configRequest', (event) => {
+            event.detail.headers['X-CSRFToken'] = '{% csrf_token %}';
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+    {% endspaceless %}
+</head>
+
+<body>{% spaceless %}
+    <div class="flex flex-col w-screen h-screen">
+        <div class="w-full p-3 text-xl bg-slate-300">{% endraw %}{{cookiecutter.app_name}}{% raw %}</div>
+        <div class="flex-grow w-full" id="main">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    {% endspaceless %}
+</body>
+
+</html>{% endraw %}
