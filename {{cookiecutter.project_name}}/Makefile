@@ -90,6 +90,7 @@ install: venv create-var-dirs
 	$(PIP) install -e .[dev]
 	rm -Rf $(PACKAGE_SLUG).egg-info
 	${MAKE} migrate
+	$(DJANGO_MANAGE) tailwind install
 .PHONY: install
 
 migrations:
