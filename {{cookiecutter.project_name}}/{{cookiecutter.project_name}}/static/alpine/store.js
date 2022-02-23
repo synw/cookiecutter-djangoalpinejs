@@ -2,7 +2,7 @@
 /**
  * Initialize the global store
  */
-function initRechatStore() {
+function initStore() {
     Alpine.store('store', {
         user: "",
         init: function () {

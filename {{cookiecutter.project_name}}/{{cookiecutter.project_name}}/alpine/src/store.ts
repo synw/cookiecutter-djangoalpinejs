@@ -1,7 +1,7 @@
 /**
  * Initialize the global store
  */
-function initRechatStore(): typeof Alpine.store {
+function initStore(): typeof Alpine.store {
   Alpine.store('store', {
     user: "",
 

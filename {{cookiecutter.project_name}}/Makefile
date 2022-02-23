@@ -25,8 +25,9 @@ help:
 	@echo "  clean-pycache       -- to remove all __pycache__, this is recursive from current directory"
 	@echo
 	@echo "  run                 -- to run Django development server"
-	@echo "  ts                  -- to run the Typescript watch autocompile"
-	@echo "  tw                  -- to run the Tailwind watch autocompile"
+	@echo "  watchts             -- to run the Typescript watch autocompile"
+	@echo "  watchtw             -- to run the Tailwind watch autocompile"
+	@echo "  buildtw             -- to run build Tailwind for production"
 	@echo "  migrate             -- to apply demo database migrations"
 	@echo "  migrations          -- to create new migrations for application after changes"
 	@echo "  superuser           -- to create a superuser for Django admin"
@@ -91,6 +92,7 @@ install: venv create-var-dirs
 	rm -Rf $(PACKAGE_SLUG).egg-info
 	${MAKE} migrate
 	$(DJANGO_MANAGE) tailwind install
+	$(DJANGO_MANAGE) tailwind build
 .PHONY: install
 
 migrations:
@@ -125,19 +127,26 @@ run:
 	$(DJANGO_MANAGE) runserver 0.0.0.0:8000
 .PHONY: run
 
-ts:
+watchts:
 	@echo ""
 	@echo "==== Running typescript watch autocompile ===="
 	@echo ""
 	cd $(PACKAGE_SLUG)/alpine && yarn watch
-.PHONY: ts
+.PHONY: watchts
 
-tw:
+buildtw:
+	@echo ""
+	@echo "==== Building Tailwind for production ===="
+	@echo ""
+	$(DJANGO_MANAGE) tailwind build
+.PHONY: buildtw
+
+watchtw:
 	@echo ""
 	@echo "==== Running Tailwind watch autocompile ===="
 	@echo ""
 	$(DJANGO_MANAGE) tailwind start
-.PHONY: tw
+.PHONY: watchtw
 
 shell:
 	@DJANGO_SECRET_KEY=$(DEMO_DJANGO_SECRET_KEY) \
