@@ -156,7 +156,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "tailwind",
     "theme",
-    "{{ cookiecutter.app_name }}.apps.{{ cookiecutter.app_name }}Config",
+    "{{ cookiecutter.project_name }}.apps.{{ cookiecutter.project_name }}Config",
 ]
 
 LOGIN_REDIRECT_URL = "/"
@@ -171,4 +171,4 @@ TAILWIND_APP_NAME = "theme"
 """
 SPECIFIC BASE APPLICATIONS SETTINGS BELOW
 """
-from {{ cookiecutter.app_name }}.settings import *
+from {{ cookiecutter.project_name }}.settings import *

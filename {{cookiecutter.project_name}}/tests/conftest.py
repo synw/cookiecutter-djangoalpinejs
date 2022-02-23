@@ -4,7 +4,7 @@ Pytest fixtures
 import os
 import pytest
 
-import {{ cookiecutter.app_name }}
+import {{ cookiecutter.project_name }}
 
 
 class FixturesSettingsTestMixin(object):
@@ -23,12 +23,12 @@ class FixturesSettingsTestMixin(object):
     def __init__(self):
         # Base fixture datas directory
         self.application_path = os.path.abspath(
-            os.path.dirname({{ cookiecutter.app_name }}.__file__)
+            os.path.dirname({{ cookiecutter.project_name }}.__file__)
         )
         self.package_path = os.path.normpath(
             os.path.join(
                 os.path.abspath(
-                    os.path.dirname({{ cookiecutter.app_name }}.__file__)
+                    os.path.dirname({{ cookiecutter.project_name }}.__file__)
                 ),
                 "..",
             )
@@ -62,8 +62,8 @@ class FixturesSettingsTestMixin(object):
             APPLICATION=self.application_path,
             TESTS=self.tests_path,
             FIXTURES=self.fixtures_path,
-            #VERSION={{ cookiecutter.app_name }}.__version__,
-            USER_AGENT={{ cookiecutter.app_name }}.USER_AGENT,
+            #VERSION={{ cookiecutter.project_name }}.__version__,
+            USER_AGENT={{ cookiecutter.project_name }}.USER_AGENT,
         )
 
 

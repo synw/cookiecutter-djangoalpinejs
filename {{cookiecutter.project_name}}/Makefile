@@ -11,7 +11,7 @@ PYRIGTH=$(VENV_PATH)/bin/pyright
 SPHINX_RELOAD=$(VENV_PATH)/bin/python sphinx_reload.py
 
 DEMO_DJANGO_SECRET_KEY=samplesecretfordev
-APPLICATION_NAME={{ cookiecutter.app_name }}
+APPLICATION_NAME={{ cookiecutter.project_name }}
 PACKAGE_SLUG=`echo $(APPLICATION_NAME) | tr '-' '_'`
 
 help:
