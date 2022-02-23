@@ -1,21 +1,16 @@
-var $store: typeof Alpine.store;
-
 /**
- * Initialize the global rechat store
+ * Initialize the global store
  */
-function initRechatStore(username?: string): void {
-  Alpine.store('rechat', {
+function initRechatStore(): typeof Alpine.store {
+  Alpine.store('store', {
     user: "",
 
-    init(username?: string) {
-      console.log("Username:", username)
-      this.user = username ?? "anonymous";
-      console.log("Init Alpine store for user", this.user);
+    init() {
+      console.log("Init Alpine store");
     },
     hxget(url: string, destination: string) {
       htmx.ajax('GET', url, destination);
     },
   });
-  $store = Alpine.store("store");
-  $store.init(username);
+  return Alpine.store("store");
 }

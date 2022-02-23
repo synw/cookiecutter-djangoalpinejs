@@ -2,4 +2,22 @@
 
 {% block content %}
 
-{% endblock content %}{% endraw %}
+{% endblock content %}
+
+{% block endbody %}
+<script src="{% static 'alpine/store.js' %}"></script>
+<script>
+  var $store;
+  // init the store
+  document.addEventListener('alpine:init', () => {
+    $store = initStore();
+    console.log("store", $store)
+    $store.init()
+  });
+  //htmx.logAll();
+  // add CSRFToken to HTMX headers
+  document.body.addEventListener('htmx:configRequest', (event) => {
+    event.detail.headers['X-CSRFToken'] = '{% csrf_token %}';
+  });
+</script>
+{% endblock %}{% endraw %}

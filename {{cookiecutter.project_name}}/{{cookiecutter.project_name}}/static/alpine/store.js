@@ -1,20 +1,16 @@
-var $store;
+"use strict";
 /**
- * Initialize the global rechat store
+ * Initialize the global store
  */
-function initRechatStore(username) {
-    Alpine.store('rechat', {
+function initRechatStore() {
+    Alpine.store('store', {
         user: "",
-
-        init(username) {
-            console.log("Username:", username)
-            this.user = username ?? "anonymous";
-            console.log("Init Alpine store for user", this.user);
+        init: function () {
+            console.log("Init Alpine store");
         },
-        hxget(url, destination) {
+        hxget: function (url, destination) {
             htmx.ajax('GET', url, destination);
         },
     });
-    $store = Alpine.store("store");
-    $store.init(username);
+    return Alpine.store("store");
 }
