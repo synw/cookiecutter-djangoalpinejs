@@ -88,6 +88,7 @@ install: venv create-var-dirs
 	@echo "==== Install everything for development ===="
 	@echo ""
 	$(PIP) install -e .[dev]
+	rm -Rf $(PACKAGE_SLUG).egg-info
 	${MAKE} migrate
 .PHONY: install
 
