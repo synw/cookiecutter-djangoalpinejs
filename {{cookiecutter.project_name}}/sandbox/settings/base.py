@@ -156,6 +156,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "tailwind",
     "theme",
+    "django_browser_reload"
     "{{ cookiecutter.project_name }}.apps.{{ cookiecutter.project_name }}Config",
 ]
 
