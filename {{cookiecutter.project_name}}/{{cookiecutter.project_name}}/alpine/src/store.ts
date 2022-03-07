@@ -14,3 +14,5 @@ function initStore(): typeof Alpine.store {
   });
   return Alpine.store("store");
 }
+
+export { initStore }

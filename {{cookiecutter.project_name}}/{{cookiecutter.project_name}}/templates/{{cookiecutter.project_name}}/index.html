@@ -6,12 +6,12 @@
 {% endblock content %}
 
 {% block endbody %}
-<script src="{% static 'alpine/store.js' %}"></script>
+<script src="{% static 'alpine/index.js' %}"></script>
 <script>
   var $store;
   // init the store
   document.addEventListener('alpine:init', () => {
-    $store = initStore();
+    $store = $alpine.initStore();
     console.log("store", $store)
     $store.init()
   });

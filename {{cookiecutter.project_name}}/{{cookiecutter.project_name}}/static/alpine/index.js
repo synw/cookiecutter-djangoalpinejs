@@ -1,0 +1,1 @@
+var $alpine=function(e){"use strict";return e.initStore=function(){return Alpine.store("store",{user:"",init:function(){console.log("Init Alpine store")},hxget:function(e,t){htmx.ajax("GET",e,t)}}),Alpine.store("store")},Object.defineProperty(e,"__esModule",{value:!0}),e}({});
