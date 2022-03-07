@@ -94,6 +94,7 @@ install: venv create-var-dirs
 	${MAKE} migrate
 	$(DJANGO_MANAGE) tailwind install
 	$(DJANGO_MANAGE) tailwind build
+	cd $(PACKAGE_SLUG)/alpine && yarn install
 .PHONY: install
 
 migrations:
