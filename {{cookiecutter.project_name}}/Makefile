@@ -26,6 +26,7 @@ help:
 	@echo
 	@echo "  run                 -- to run Django development server"
 	@echo "  watchts             -- to run the Typescript watch autocompile"
+	@echo "  buildts             -- to build the Typescript code to a js bundle"
 	@echo "  watchtw             -- to run the Tailwind watch autocompile"
 	@echo "  buildtw             -- to run build Tailwind for production"
 	@echo "  migrate             -- to apply demo database migrations"
@@ -133,6 +134,13 @@ watchts:
 	@echo ""
 	cd $(PACKAGE_SLUG)/alpine && yarn watch
 .PHONY: watchts
+
+buildts:
+	@echo ""
+	@echo "==== Building typescript ===="
+	@echo ""
+	cd $(PACKAGE_SLUG)/alpine && yarn build
+.PHONY: buildts
 
 buildtw:
 	@echo ""
